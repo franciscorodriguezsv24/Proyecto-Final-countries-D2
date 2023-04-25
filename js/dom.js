@@ -15,7 +15,8 @@ const html = callElement('html');
 //Espacio para el modal 
 const modalMaker = callElement('#modalMaker')
 //div para los buttons 
-
+const button = callElement('.modal');
+console.log(button)
 
 //Dark mode
 darkMode.addEventListener('click', () =>{
@@ -41,7 +42,7 @@ const creatCard = (obj) => {
     <div class="card px-0 h-100" data-bs-toggle="modal" data-bs-target="#country" style="padding-bottom:50px; id="perCountry">
     <img src="${obj.flags.png}" class="card-img-top img-fluid h-50"  alt="...">
      <div class="card-body d-flex flex-column gap-2 ps-5">
-      <p class=" fw-bold m-0 py-3"id="countryNames">${obj.name.common}</p>
+      <p class=" fw-bold m-0 py-3 user-select-none"id="countryNames">${obj.name.common}</p>
       <p class="m-0 fw-normal" >Population: <spam class="fw-light">${obj.population}</spam></p>
       <p class="m-0  fw-normal">Region:<spam class="fw-light"> ${obj.region}</spam></p>
       <p class="m-0  fw-normal">Capital: <spam class="fw-light">${obj.capital}</spam></p>
