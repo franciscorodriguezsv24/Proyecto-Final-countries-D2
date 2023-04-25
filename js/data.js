@@ -8,6 +8,49 @@ const getData = async () =>{
     return data;
 }
 
+// Filtro teclado 
+const filterByName = (arr, filtro) => {
+
+    let filtered = arr.filter(elem => elem.name.common.toLowerCase().includes(filtro.toLowerCase()))
+    return filtered
+}
+
+
+//array de los continentes
+
+const getRegions = (data) =>{
+    let newRegions = data.map(elem => elem.region)
+
+    newRegions = new Set(newRegions)
+    
+    newRegions = [...newRegions]
+
+    return newRegions
+}
+
+// filtro por region 
+
+const countryRegions = (arr, filtro) =>{
+    let newCountryRegions = arr.filter(elem => elem.region == filtro)
+    newCountryRegions = [...newCountryRegions];
+
+    return newCountryRegions
+}
+
+// Filtro del modal
+
+const showModal = (arr, filtro) => {
+
+    let newModal = arr.filter(elem => elem.name.common == filtro)
+    newModal = [...newModal];
+
+    return newModal
+}
+
 export default{
-    getData
+    getData,
+    filterByName,
+    getRegions,
+    countryRegions,
+    showModal
 }
