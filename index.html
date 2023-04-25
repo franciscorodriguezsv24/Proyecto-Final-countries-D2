@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,25 +17,26 @@
 
   <script src="./js/app.js" type="module" defer></script>
   <title>Document</title>
+  <script src="./js/app.js" defer type="module"></script>
 </head>
 <body class="bg-body-tertiary b-0 p-0">
 <!-- Navbar y el header -->
   <header>
     <nav class="navbar bg-light-subtle py-4 px-3 w-100" >
       <spam class="fw-semibold" style="font-size:20px ;">Where in the world?</spam>
-      <button class="btn py-1 d-flex flex-row gap-2">
+      <button class="btn py-1 d-flex flex-row gap-2" id="Dark">
         <span class="material-symbols-outlined">dark_mode</span>
         <spam style="font-size:18px ;">Dark Mode</spam></button>
     </nav>
   </header>
   <!-- Funcionalidad de los fitros o buscadores -->
-<div class="container">
+<div class="container part1">
   <form class="d-flex flex-column gap-4">
    <div class="row justify-content-between">
      <div class="col-sm-12 col-lg-4">
        <div class="my-3 border rounded position-relative">
           <i class="fa-solid fa-magnifying-glass position-absolute" style="left:17px; top:22px;"></i>
-          <input type="email" class="form-control bg-light-subtle py-3 ps-5" placeholder="search for a country...">
+          <input type="text" class="form-control bg-light-subtle py-3 ps-5" placeholder="search for a country..." id="searchCountry">
        </div>
       </div>
       <div class="col-sm-12 col-lg-3">
@@ -44,9 +45,7 @@
            Filter by Region.     
           </button>
            <ul class="dropdown-menu" id="button-Continents">
-             <li><button class="dropdown-item" type="button">Action</button></li>
-             <li><button class="dropdown-item" type="button">Another action</button></li>
-             <li><button class="dropdown-item" type="button">Something </button></li>
+            
            </ul>
         </div>
       </div>
@@ -55,65 +54,10 @@
 </div>
   <!-- Creacion de cards -->
 
-<div class="container">
- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-5 g-lg-5">
-  <div class="col">
-    <div class="card px-0" data-bs-toggle="modal" data-bs-target="#country" style="padding-bottom:100px;">
-      <img src="https://picsum.photos/id/237/60/40" class="card-img-top img-fluid" alt="...">
-       <div class="card-body d-flex flex-column gap-2 ps-5">
-        <p class=" fw-bold m-0 py-3">country 1</p>
-        <p class="m-0 fw-normal" >Population: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Region: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-     </div>
-   </div>
-  </div>
-   
-  <div class="col">
-    <div class="card px-0" style="padding-bottom:100px;">
-      <img src="https://picsum.photos/id/237/60/40" class="card-img-top img-fluid" alt="...">
-       <div class="card-body d-flex flex-column gap-2 ps-5">
-        <p class=" fw-bold m-0 py-3">country 1</p>
-        <p class="m-0 fw-normal" >Population: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Region: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-     </div>
-   </div>
-  </div>
-
-  <div class="col">
-    <div class="card px-0" style="padding-bottom:100px;">
-      <img src="https://picsum.photos/id/237/60/40" class="card-img-top img-fluid" alt="...">
-       <div class="card-body d-flex flex-column gap-2 ps-5">
-        <p class=" fw-bold m-0 py-3">country 1</p>
-        <p class="m-0 fw-normal" >Population: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Region: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-     </div>
-   </div>
-  </div>
-
-  <div class="col">
-    <div class="card px-0" style="padding-bottom:100px;">
-      <img src="https://picsum.photos/id/237/60/40" class="card-img-top img-fluid" alt="...">
-       <div class="card-body d-flex flex-column gap-2 ps-5">
-        <p class=" fw-bold m-0 py-3">country 1</p>
-        <p class="m-0 fw-normal" >Population: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Region: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-     </div>
-   </div>
-  </div>
-
-  <div class="col">
-    <div class="card px-0" style="padding-bottom:100px;">
-      <img src="https://picsum.photos/id/237/60/40" class="card-img-top img-fluid" alt="...">
-       <div class="card-body d-flex flex-column gap-2 ps-5">
-        <p class=" fw-bold m-0 py-3">country 1</p>
-        <p class="m-0 fw-normal" >Population: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Region: <spam class="fw-light">hola mundo</spam></p>
-        <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-     </div>
+<div class="container cards-selector">
+ <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-5 g-lg-5" id="countryCards">
+  <!-- Aca estan las cards -->
+ 
    </div>
   </div>
 
@@ -124,42 +68,22 @@
       <div class="modal-header">
           <nav class="navbar bg-light-subtle py-2 px-1 w-100" >
             <spam class="fw-semibold" style="font-size:20px ;">Where in the world?</spam>
-            <button class="btn py-1 d-flex flex-row gap-2">
+            <button class="btn py-1 d-flex flex-row gap-2" id="Light">
               <span class="material-symbols-outlined">dark_mode</span>
               <spam style="font-size:18px ;">Dark Mode</spam>
             </button>
           </nav>
       </div>
-      <div class="modal-body">
-        <div class="container">
-          <button class="btn btn-light-subtle">Back</button>
-          <img src="https://picsum.photos/id/237/450/200">
-          <p class="fw-bold">country</p>
-          <div class="d-flex flex-column">
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-          </div>
-          <div class="d-flex flex-column">
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-            <p class="m-0  fw-normal">Capital: <spam class="fw-light">hola mundo</spam></p>
-          </div>
-          <p class="fs-6">Border Countries</p>
-          <div class="d-flex gap-2">
-            <button class="btn btn-light-subtle">Back</button>
-            <button class="btn btn-light-subtle">Back</button>
-            <button class="btn btn-light-subtle">Back</button>
-          </div>
-        </div>
-        
-
+      <div class="modal-body" id="modalMaker">
+       
+        </div> 
       </div>
     </div>
   </div>
 </div>
+
+<!-- Fin del modal. -->
+
 
 </body>
 </html>
